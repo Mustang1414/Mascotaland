@@ -14,6 +14,7 @@ if (!empty($_POST["nombres"])) {
   $st->bindParam(':username', $username);
   if ($st->execute()) {
     $message = "succesfully created new user";
+    header('Location: /Mascotaland');  
   } else {
     $message = "lo siento, ha habido un problema al crear su contraseña";
   }

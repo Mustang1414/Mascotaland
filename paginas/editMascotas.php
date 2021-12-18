@@ -43,7 +43,7 @@ if (!empty($_POST["update"])) {
   $st->bindParam(':sexo', $_POST['sexo']);
   $st->bindParam(':descripcion', $_POST['descripcion']);
   $st->execute();
-  header('Location: mascotas.php');
+  header('Location: mascotas2.php');
 }
 
 
@@ -90,11 +90,12 @@ $st->execute(); */
 
   </ul>
   <div class="container-fluid">
-    <div class="row ">
-      <div class="col-12">
+    <div class="row">
+     <div class="col-6">
+     <div class="col">
         <section>
           <form action="editMascotas.php?ID=<?= $_GET['ID'] ?>" method="POST">
-            <h4>Hotel para mascotas</h4>
+            <h4 class="text-white">Hotel para mascotas</h4>
             <input class="controls" type="text" name="nombre" id="nombre" value="<?php echo $nombre_mascota ?>">
             <label id="tipoMascotaHidden" name="<?php echo $tipo_mascota ?>" hidden><?php echo $tipo_mascota ?></label>
             <select class="controls" name="tipoMascota" id="tipoMascota">
@@ -107,16 +108,21 @@ $st->execute(); */
             </select>
             <label id="sexoMascotaHidden" name="<?php echo $sexo_mascota ?>" hidden><?php echo $sexo_mascota ?></label>
             <br>
-            <label for="sexo">Macho</label>
-            <input class="controls" type="radio" name="sexo" id="macho" value="Macho">
-            <label for="sexo">Hembra</label>
-            <input class="controls" type="radio" name="sexo" id="hembra" value="Hembra">
+            <div class="form-check checkboxs">
+                <input class="form-check-input" type="radio" value="Macho" name="sexo" id="macho">
+                <label class="form-check-label text-white" for="sexo"> Macho </label>
+              </div>
+              <div class="form-check checkboxs mb-3">
+                <input class="form-check-input" type="radio" value="Hembra" name="sexo" id="hembra">
+                <label class="form-check-label text-white" for="sexo"> Hembra </label>
+              </div>
             <input class="controls" type="text" name="descripcion" id="descripcion" placeholder="Descripcion de la mascota" value="<?php echo $descripcion_mascota ?>">
             <input class="botons" type="submit" value="update" name="update">
           </form>
 
         </section>
       </div>
+     </div>
     </div>
   </div>
 
